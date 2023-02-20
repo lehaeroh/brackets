@@ -3,16 +3,13 @@ function check(str, bracketsConfig) {
   let stack = [];
   let pairsBrack = Object.fromEntries(bracketsConfig);
 
-  if (str.length % 2 !== 0) return false;
-
   [...str].forEach((item) => {
- 
 
     if (bracketsConfig.flat().includes(item)) {
       if (stack.length > 0 && pairsBrack[stack[stack.length - 1]] === item) {
-      
+
         stack.pop();
-      } else { 
+      } else {
         stack.push(item);
       }
     }
